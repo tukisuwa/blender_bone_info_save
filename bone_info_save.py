@@ -10,6 +10,9 @@ rendering_mode = False
 # シェイプキー情報を出力するかどうか
 export_shape_keys = True
 
+# JSONファイルを保存するフォルダ (指定しない場合は空文字列)
+json_output_folder = "" 
+
 def get_bone_chain_global_locations(armature_object):
     """
     アーマチュアオブジェクトの全てのボーンについて、
@@ -292,7 +295,12 @@ def save_frame_data_core(scene, frame):
     json_file_name = f"{frame:04d}.json"
 
     # JSONファイルパスを作成
-    json_file_path = os.path.join(os.path.dirname(output_path), json_file_name) # dirnameを追加
+    if json_output_folder:
+        # json_output_folder が指定されている場合は、そのフォルダを使用する
+        json_file_path = os.path.join(json_output_folder, json_file_name)
+    else:
+        # json_output_folder が指定されていない場合は、これまで通りのパスを使用する
+        json_file_path = os.path.join(os.path.dirname(output_path), json_file_name)
 
     # JSONデータを出力
     with open(json_file_path, "w", encoding="utf-8") as f:  # エンコーディングを指定
