@@ -135,8 +135,8 @@ def draw_bones(draw, data, width, height, drawing_instructions_path):
     with open(drawing_instructions_path, 'r', encoding='utf-8') as f:
         instructions = json.load(f)
 
-    # indexでソート
-    sorted_instructions = sorted(instructions["bones"], key=lambda x: x["index"])
+    # indexでソート、indexが文字列型で"="で始まっている場合は式として評価
+    sorted_instructions = sorted(instructions["bones"], key=lambda x: eval(x["index"][1:]) if isinstance(x["index"], str) and x["index"].startswith("=") else x["index"])
 
     for instruction in sorted_instructions:
         draw_type = instruction["draw_type"]
@@ -295,8 +295,17 @@ def set_constants_from_json(json_path):
                 set_constants(item, new_prefix)
         else:
             # キー名を英数字とアンダースコアのみで構成されるように変換
-            constant_name = re.sub(r"[^a-zA-Z0-9_]", "_", prefix.rstrip("_")) 
-            globals()[constant_name] = data 
+            constant_name = re.sub(r"[^a-zA-Z0-9_]", "_", prefix.rstrip("_"))
+            
+            # 値が文字列型で、"=" で始まっている場合は式として評価
+            if isinstance(data, str) and data.startswith("="):
+                try:
+                    globals()[constant_name] = eval(data[1:]) # "="を除去して評価
+                except Exception as e:
+                    print(f"式 '{data}' の評価中にエラーが発生しました: {e}")
+                    globals()[constant_name] = data # エラーの場合は元の文字列を代入
+            else:
+                globals()[constant_name] = data 
 
     set_constants(data)
 
@@ -310,7 +319,7 @@ if __name__ == "__main__":
         "-d", "--drawing_instructions", help="ボーン描画手順を記述したJSONファイルのパス")
     parser.add_argument("-o", "--output", help="出力画像ファイルまたはフォルダのパス")
     parser.add_argument("-s", "--suffix", help="出力ファイル名のサフィックス", default="_draw")
-    parser.add_argument("-b", "--background", help="背景色 (white または transparent)", default="white")
+    parser.add_argument("-b", "--background", help="背景色 (色 または transparent)", default="white")
     args = parser.parse_args()
 
     if args.json and args.drawing_instructions and args.output:
