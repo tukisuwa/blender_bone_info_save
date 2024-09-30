@@ -172,7 +172,7 @@ def draw_bones(draw, data, width, height, drawing_instructions_path):
                 draw.bitmap((0, 0), custom_image) 
 
 
-def draw_bones_on_canvas(json_path, drawing_instructions_path, output_path=None, output_suffix="_draw"):
+def draw_bones_on_canvas(json_path, drawing_instructions_path, output_path=None, output_suffix="_draw", background_color="white"):
     """
     JSONファイルと描画方法JSONファイルからボーンを描画する
 
@@ -182,6 +182,7 @@ def draw_bones_on_canvas(json_path, drawing_instructions_path, output_path=None,
         output_path (str, optional): 出力画像ファイルのパスまたはフォルダパス. Defaults to None.
         output_suffix (str, optional): 出力ファイル名のサフィックス. Defaults to "_draw". 
                                       空文字列("")を指定するとサフィックスは付加されません.
+        background_color (str, optional): 背景色 ("white" または "transparent"). Defaults to "white".
     """
     try:
         if os.path.isdir(json_path):
@@ -192,7 +193,7 @@ def draw_bones_on_canvas(json_path, drawing_instructions_path, output_path=None,
                     output_filename = filename.replace(".json", f"{output_suffix}.png")
                     output_file_path = os.path.join(output_path, output_filename)
                     _draw_bones_from_files(
-                        json_file_path, drawing_instructions_path, output_file_path)
+                        json_file_path, drawing_instructions_path, output_file_path, background_color)
         else:
             # json_path がファイルの場合、単一のJSONファイルを処理
             if output_path and os.path.isdir(output_path):
@@ -201,7 +202,7 @@ def draw_bones_on_canvas(json_path, drawing_instructions_path, output_path=None,
             else:
                 output_file_path = output_path
             _draw_bones_from_files(
-                json_path, drawing_instructions_path, output_file_path)
+                json_path, drawing_instructions_path, output_file_path, background_color)
 
     except FileNotFoundError:
         print("ファイルが見つかりません。")
@@ -211,7 +212,7 @@ def draw_bones_on_canvas(json_path, drawing_instructions_path, output_path=None,
         print(f"エラーが発生しました: {e}")
 
 
-def _draw_bones_from_files(json_file_path, drawing_instructions_path, output_file_path):
+def _draw_bones_from_files(json_file_path, drawing_instructions_path, output_file_path, background_color="white"):
     """
     JSONファイルと描画方法JSONファイルからボーンを描画し、画像を保存または表示する
 
@@ -219,6 +220,7 @@ def _draw_bones_from_files(json_file_path, drawing_instructions_path, output_fil
         json_file_path (str): 入力JSONファイルのパス
         drawing_instructions_path (str): ボーン描画手順を記述したJSONファイルのパス
         output_file_path (str, optional): 出力画像ファイルのパス. Defaults to None.
+        background_color (str, optional): 背景色 ("white" または "transparent"). Defaults to "white".
     """
     try:
         # JSONファイルを読み込み、定数を設定
@@ -229,7 +231,10 @@ def _draw_bones_from_files(json_file_path, drawing_instructions_path, output_fil
         height = int(CAMERA_RESOLUTION_Y)
 
         # 画像を作成
-        image = Image.new("RGB", (width, height), "white")
+        if background_color == "transparent":
+            image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+        else:
+            image = Image.new("RGB", (width, height), background_color)
         draw = ImageDraw.Draw(image)
 
         # JSONからボーン情報と描画方法を読み込み、描画
@@ -237,7 +242,10 @@ def _draw_bones_from_files(json_file_path, drawing_instructions_path, output_fil
 
         # 画像を保存または表示
         if output_file_path:
-            image.save(output_file_path)
+            if background_color == "transparent":
+                image.save(output_file_path, "PNG")
+            else:
+                image.save(output_file_path)
             print(f"画像を '{output_file_path}' に保存しました。")
         else:
             # GUIで表示
@@ -302,11 +310,12 @@ if __name__ == "__main__":
         "-d", "--drawing_instructions", help="ボーン描画手順を記述したJSONファイルのパス")
     parser.add_argument("-o", "--output", help="出力画像ファイルまたはフォルダのパス")
     parser.add_argument("-s", "--suffix", help="出力ファイル名のサフィックス", default="_draw")
+    parser.add_argument("-b", "--background", help="背景色 (white または transparent)", default="white")
     args = parser.parse_args()
 
     if args.json and args.drawing_instructions and args.output:
         # JSON, 描画方法JSON, 出力先が指定されている場合は画像として保存
-        draw_bones_on_canvas(args.json, args.drawing_instructions, args.output, args.suffix)
+        draw_bones_on_canvas(args.json, args.drawing_instructions, args.output, args.suffix, args.background)
     else:
         # いずれかが指定されていない場合はGUIで表示
         root = tk.Tk()
