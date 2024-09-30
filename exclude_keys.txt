@@ -1,0 +1,8 @@
+# 不要な要素
+children
+global_coords
+tail_global_coords
+vertex_index
+focal_length
+location
+rotation_euler

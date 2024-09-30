@@ -1,0 +1,238 @@
+{
+  "bones": [
+    {
+      "index": 100,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_C_HEAD_TAIL_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_C_HEAD_TAIL_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 200,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 300,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 400,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_R_LOWERARM_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_R_LOWERARM_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 500,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_L_LOWERARM_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_L_LOWERARM_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 600,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_R_HAND_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_R_HAND_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 700,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_L_HAND_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_L_HAND_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 800,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_R_UPPERLEG_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_R_UPPERLEG_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 900,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_L_UPPERLEG_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_L_UPPERLEG_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 1000,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_R_LOWERLEG_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_R_LOWERLEG_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 1100,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_L_LOWERLEG_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_L_LOWERLEG_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 1200,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_R_FOOT_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_R_FOOT_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 1300,
+      "draw_type": "circle",
+      "x": "BONES_J_BIP_L_FOOT_SCREEN_COORDS_0",
+      "y": "BONES_J_BIP_L_FOOT_SCREEN_COORDS_1",
+      "size": "10", 
+      "color": "red"
+    },
+    {
+      "index": 1,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 2,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_R_UPPERLEG_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_R_UPPERLEG_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 3,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_L_UPPERLEG_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_L_UPPERLEG_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 4,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_R_UPPERLEG_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_R_UPPERLEG_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_L_UPPERLEG_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_L_UPPERLEG_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 5,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_R_LOWERARM_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_R_LOWERARM_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 6,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_R_LOWERARM_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_R_LOWERARM_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_R_HAND_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_R_HAND_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 7,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_L_LOWERARM_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_L_LOWERARM_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 8,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_L_LOWERARM_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_L_LOWERARM_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_L_HAND_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_L_HAND_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 9,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_R_UPPERLEG_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_R_UPPERLEG_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_R_LOWERLEG_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_R_LOWERLEG_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 10,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_R_LOWERLEG_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_R_LOWERLEG_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_R_FOOT_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_R_FOOT_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 11,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_L_UPPERLEG_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_L_UPPERLEG_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_L_LOWERLEG_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_L_LOWERLEG_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 12,
+      "draw_type": "line",
+      "start_x": "BONES_J_BIP_L_LOWERLEG_SCREEN_COORDS_0",
+      "start_y": "BONES_J_BIP_L_LOWERLEG_SCREEN_COORDS_1",
+      "end_x": "BONES_J_BIP_L_FOOT_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_L_FOOT_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    },
+    {
+      "index": 13,
+      "draw_type": "line",
+      "start_x": "(BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_0 + BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_0) / 2",
+      "start_y": "(BONES_J_BIP_R_UPPERARM_SCREEN_COORDS_1 + BONES_J_BIP_L_UPPERARM_SCREEN_COORDS_1) / 2",
+      "end_x": "BONES_J_BIP_C_HEAD_TAIL_SCREEN_COORDS_0",
+      "end_y": "BONES_J_BIP_C_HEAD_TAIL_SCREEN_COORDS_1",
+      "size": 2,
+      "color": "blue"
+    }
+    ]
+}

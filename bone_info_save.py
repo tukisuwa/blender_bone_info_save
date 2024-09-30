@@ -4,6 +4,9 @@ import os
 import mathutils
 from bpy_extras.object_utils import world_to_camera_view
 
+# モード選択 (レンダリングモード: True, フレーム保存モード: False)
+rendering_mode = False
+
 # シェイプキー情報を出力するかどうか
 export_shape_keys = True
 
@@ -146,7 +149,7 @@ def get_vertex_group_screen_coords(obj, vertex_group_name, scene, cam):
                 screen_coords.append({
                     "vertex_index": vertex.index, 
                     "screen_coords": screen_coord,
-                    "global_coords": list(world_coords) # グローバル座標を追加
+                    "global_coords": list(world_coords) 
                 })
                 break # 同じ頂点が複数の頂点グループに属している場合、最初の頂点グループのみ処理する
 
@@ -171,13 +174,10 @@ def get_vertex_group_screen_coords(obj, vertex_group_name, scene, cam):
 
 
 def save_frame_data_core(scene, frame):
-    """
-    指定されたフレームのデータを取得し、JSON ファイルに保存する共通処理
 
-    Args:
-        scene (bpy.types.Scene): Blenderのシーンデータ
-        frame (int): 保存するフレーム番号
-    """
+    # scene (bpy.types.Scene): Blenderのシーンデータ
+    # frame (int): 保存するフレーム番号
+
 
     # フレーム番号を設定
     scene.frame_set(frame)
@@ -314,9 +314,6 @@ def save_frame_data(scene, frame):
     """
     save_frame_data_core(scene, frame)
 
-
-# モード選択 (レンダリングモード: True, フレーム保存モード: False)
-rendering_mode = False
 
 def main():
     """
